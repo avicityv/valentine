@@ -3,6 +3,18 @@
 <head>
     <title>Вход</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+        // Проверяем параметр ошибки в URL
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('error')) {
+                const errorDiv = document.createElement('p');
+                errorDiv.className = 'error';
+                errorDiv.textContent = 'Неверный пароль! Попробуй ещё раз';
+                document.querySelector('form').appendChild(errorDiv);
+            }
+        });
+    </script>
 </head>
 <body>
     <div class="login-box">
@@ -10,9 +22,6 @@
         <form action="/login" method="post">
             <input type="password" name="password" required>
             <button type="submit">Открыть любовь ❤️</button>
-            <% if (req.query.error) { %>
-                <p class="error">Неверный пароль! Попробуй ещё раз</p>
-            <% } %>
         </form>
     </div>
 </body>

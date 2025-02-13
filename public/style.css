@@ -1,45 +1,128 @@
 body {
-    background: #ffebf0;
+    background: #ffebf3;
     font-family: 'Arial', sans-serif;
-}
-
-.login-box {
-    background: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    max-width: 300px;
-    margin: 5rem auto;
-    text-align: center;
+    margin: 0;
+    padding: 20px;
+    user-select: none;
 }
 
 .game-container {
-    text-align: center;
-    padding: 2rem;
-}
-
-.heart-field {
-    margin: 2rem;
-    min-height: 60vh;
-    position: relative;
-}
-
-.heart {
-    position: absolute;
-    cursor: pointer;
-    transition: transform 0.3s;
-}
-
-.valentine-text {
-    background: white;
-    padding: 2rem;
-    border-radius: 10px;
-    font-size: 1.2rem;
-    line-height: 1.6;
     max-width: 600px;
     margin: 0 auto;
 }
 
-.hidden {
-    display: none;
+.header {
+    background: #ff99bb;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2em;
+    margin: 15px 0;
+}
+
+.progress-bar {
+    background: #ffe5ee;
+    height: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background: linear-gradient(90deg, #ff6699, #ff3366);
+    width: 0%;
+    transition: width 0.3s;
+}
+
+.reset-button {
+    background: #ff4444 !important;
+    margin-top: 20px;
+}
+
+.reset-button:hover {
+    background: #cc0000 !important;
+}
+
+.click-area {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.mega-heart {
+    font-size: 8em;
+    animation: pulse 1.5s infinite;
+    transition: transform 0.1s;
+    pointer-events: none;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.click-power {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.shop {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+
+.upgrades {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.upgrade {
+    background: #fff0f7;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+button {
+    background: #ff6699;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin: 5px;
+}
+
+button:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+}
+
+#valentineBtn {
+    width: 100%;
+    font-size: 1.5em;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+#valentine {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1.2em;
 }

@@ -1,14 +1,24 @@
 require('dotenv').config();
 const express = require('express');
+const cookieParser = require('cookie-parser'); // Добавляем эту строку
 const app = express();
-const PORT = 3000;
+const PORT = 3001;
 
-// Middleware для проверки пароля
+// Добавляем middleware для cookies ДО проверки авторизации
+app.use(cookieParser());
+app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }));
+
+// Middleware для проверки пароля (перемещаем ПОСЛЕ cookieParser)
 const checkPassword = (req, res, next) => {
-    if (req.path === '/login') return next();
-    if (req.cookies.auth === 'true') return next();
+    if (req.path === '/login' || req.cookies?.auth === 'true') {
+        return next();
+    }
     res.redirect('/login');
 };
+
+app.use(checkPassword);
+
 
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));

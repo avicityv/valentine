@@ -1,15 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Собери наши сердца</title>
+    <title>Сердечный Кликер</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="game-container">
-        <h1>Собери 10 сердец для продолжения! 💑</h1>
-        <div class="hearts-counter">❤️: <span id="count">0</span></div>
-        <div class="heart-field" id="heartField"></div>
-        <div class="valentine-text hidden" id="valentineText"></div>
+        <div class="header">
+            <h1>Собери 1000 сердец! 💘</h1>
+            <div class="stats">
+                <div class="counter">❤️ <span id="hearts">0</span>/1000</div>
+                <div class="auto-rate">🚀 Авто: <span id="autoRate">0</span>/сек</div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress" id="progress"></div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="clicker-section">
+                <div class="click-area" id="clickArea">
+                    <div class="mega-heart">💖</div>
+                </div>
+                <div class="click-power">💪 Сила: <span id="clickPower">1</span></div>
+            </div>
+
+            <div class="shop">
+                <h2>⚙️ Улучшения</h2>
+                <div class="upgrades">
+                    <div class="upgrade">
+                        <h3>Усиленный клик</h3>
+                        <p>+1 ❤️ за клик</p>
+                        <button id="clickUpgrade" onclick="buyUpgrade('click')">10 ❤️</button>
+                    </div>
+                    <div class="upgrade">
+                        <h3>Авто-сборщик</h3>
+                        <p>+1 ❤️/сек</p>
+                        <button id="autoUpgrade" onclick="buyUpgrade('auto')">50 ❤️</button>
+                    </div>
+                </div>
+            </div>
+
+            <button id="valentineBtn" class="hidden" onclick="showValentine()">
+                💌 Получить валентинку
+            </button>
+        </div>
+
+        <div id="valentine" class="hidden"></div>
     </div>
     <script src="script.js"></script>
 </body>
