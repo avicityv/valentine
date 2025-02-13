@@ -68,7 +68,7 @@ class ValentineGame {
             if (this.state.autoPower > 0) {
                 this.addHearts(this.state.autoPower);
             }
-        }, 1000);
+        }, 1509);
     }
 
     checkValentineButton() {
@@ -78,6 +78,7 @@ class ValentineGame {
             btn.disabled = false;
         } else {
             btn.classList.add('hidden');
+            btn.disabled = true; // Добавляем принудительное отключение
         }
     }
 
@@ -98,7 +99,7 @@ class ValentineGame {
         document.getElementById('clickUpgrade').textContent = `${this.state.prices.click} ❤️`;
         document.getElementById('autoUpgrade').textContent = `${this.state.prices.auto} ❤️`;
         
-        const progress = (this.state.hearts / 1000) * 100;
+        const progress = (this.state.hearts / 1509) * 100;
         document.getElementById('progress').style.width = `${Math.min(progress, 100)}%`;
     }
 
@@ -144,11 +145,11 @@ function showValentine() {
 }
 
 function resetGame() {
-    // Полная очистка localStorage
+    // Полный сброс хранилища
     localStorage.clear();
     
-    // Явный сброс всех параметров
-    const resetParams = {
+    // Явный сброс состояния игры
+    game.state = {
         hearts: 0,
         clickPower: 1,
         autoPower: 0,
@@ -158,19 +159,14 @@ function resetGame() {
         }
     };
     
-    // Принудительное обновление состояния
-    game.state = resetParams;
+    // Принудительное обновление интерфейса
+    game.updateUI();
+    game.checkValentineButton(); // Важное исправление!
     
-    // Сброс UI элементов
-    document.getElementById('hearts').textContent = '0';
-    document.getElementById('autoRate').textContent = '0';
-    document.getElementById('clickPower').textContent = '1';
-    document.getElementById('clickUpgrade').textContent = '10 ❤️';
-    document.getElementById('autoUpgrade').textContent = '50 ❤️';
-    document.getElementById('progress').style.width = '0%';
-    document.getElementById('valentine').classList.add('hidden');
+    // Дополнительные гарантии
+    document.getElementById('valentineBtn').disabled = true;
     document.getElementById('valentineBtn').classList.add('hidden');
-    const container = document.getElementById('valentine');
-    container.classList.add('hidden');
-    console.log('Прогресс полностью сброшен!'); // Для отладки
+    document.getElementById('valentine').classList.add('hidden');
+    
+    console.log('Состояние после сброса:', game.state); // Для отладки
 }
