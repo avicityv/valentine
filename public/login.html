@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Вход</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-box">
+        <h2>Введи пароль 💖</h2>
+        <form action="/login" method="post">
+            <input type="password" name="password" required>
+            <button type="submit">Открыть любовь ❤️</button>
+            <% if (req.query.error) { %>
+                <p class="error">Неверный пароль! Попробуй ещё раз</p>
+            <% } %>
+        </form>
+    </div>
+</body>
+</html>
