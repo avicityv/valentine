@@ -1,0 +1,45 @@
+body {
+    background: #ffebf0;
+    font-family: 'Arial', sans-serif;
+}
+
+.login-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    max-width: 300px;
+    margin: 5rem auto;
+    text-align: center;
+}
+
+.game-container {
+    text-align: center;
+    padding: 2rem;
+}
+
+.heart-field {
+    margin: 2rem;
+    min-height: 60vh;
+    position: relative;
+}
+
+.heart {
+    position: absolute;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.valentine-text {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.hidden {
+    display: none;
+}
